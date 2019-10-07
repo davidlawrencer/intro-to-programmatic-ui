@@ -10,25 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let theTextToShowAtLaunch = "We just launched"
+    
     private var greenModeStatus = false {
         didSet {
             refreshGreenMode()
         }
     }
     
-    var label: UILabel = {
-        let label = UILabel(frame: CGRect(x: 40, y: 300, width: 300, height: 40))
+    lazy var label: UILabel = {
+        let label = UILabel()
         label.textColor = .blue
         label.backgroundColor = .black
         label.textAlignment = .center
-        label.text = "hello WORLD"
+        label.text = self.theTextToShowAtLaunch
         return label
     }()
     
-    var greenModeSwitch: UISwitch = {
-        let theSwitch = UISwitch (frame: CGRect(x: 45, y: 350, width: 40, height: 40))
-        //adds action to control
+    lazy var greenModeSwitch: UISwitch = {
+        let theSwitch = UISwitch()
         theSwitch.isOn = true
+        //adds action to control
         theSwitch.addTarget(self, action: #selector(switchPressedAgain(sender:)), for: .valueChanged)
         return theSwitch
     }()
@@ -40,12 +42,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSubviews()
+        addConstraintsToSubviews()
         greenModeStatus = true
     }
 
     private func setUpSubviews() {
         self.view.addSubview(label)
-    self.view.addSubview(greenModeSwitch)
+        self.view.addSubview(greenModeSwitch)
+    }
+    
+    private func addConstraintsToSubviews() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        greenModeSwitch.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            greenModeSwitch.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),        greenModeSwitch.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        label.centerXAnchor.constraint(equalTo: greenModeSwitch.centerXAnchor),
+        label.topAnchor.constraint(equalTo: greenModeSwitch.bottomAnchor, constant: 30)
+        ])
     }
     
     private func refreshGreenMode() {
