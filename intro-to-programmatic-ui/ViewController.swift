@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let theTextToShowAtLaunch = "We just launched"
     
     private var greenModeStatus = false {
         didSet {
@@ -23,7 +21,6 @@ class ViewController: UIViewController {
         label.textColor = .blue
         label.backgroundColor = .black
         label.textAlignment = .center
-        label.text = self.theTextToShowAtLaunch
         return label
     }()
     
