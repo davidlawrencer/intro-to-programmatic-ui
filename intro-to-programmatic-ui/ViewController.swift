@@ -16,26 +16,47 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var statusLabel: UILabel!
+    var label: UILabel = {
+        let label = UILabel(frame: CGRect(x: 40, y: 300, width: 300, height: 40))
+        label.textColor = .blue
+        label.backgroundColor = .black
+        label.textAlignment = .center
+        label.text = "hello WORLD"
+        return label
+    }()
+    
+    var greenModeSwitch: UISwitch = {
+        let theSwitch = UISwitch (frame: CGRect(x: 45, y: 350, width: 40, height: 40))
+        //adds action to control
+        theSwitch.isOn = true
+        theSwitch.addTarget(self, action: #selector(switchPressedAgain(sender:)), for: .valueChanged)
+        return theSwitch
+    }()
+    
+    @objc func switchPressedAgain (sender: UISwitch){
+        self.greenModeStatus = sender.isOn
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpSubviews()
         greenModeStatus = true
     }
 
-    @IBAction func modeSwitchPressed(_ sender: UISwitch) {
-        self.greenModeStatus = sender.isOn        
+    private func setUpSubviews() {
+        self.view.addSubview(label)
+    self.view.addSubview(greenModeSwitch)
     }
     
     private func refreshGreenMode() {
         if greenModeStatus {
             self.view.backgroundColor = .green
-            self.statusLabel.textColor = .white
-            self.statusLabel.text = "Green Mode is on!"
+            self.label.textColor = .white
+            self.label.text = "Green Mode is on!"
         } else {
             self.view.backgroundColor = .white
-            self.statusLabel.textColor = .green
-            self.statusLabel.text = "Green Mode is off!"
+            self.label.textColor = .green
+            self.label.text = "Green Mode is off!"
         }
     }
 }

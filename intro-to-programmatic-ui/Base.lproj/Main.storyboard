@@ -14,32 +14,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tOf-er-6MR">
-                                <rect key="frame" x="182.5" y="391" width="51" height="31"/>
-                                <connections>
-                                    <action selector="modeSwitchPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="HHU-yH-dq0"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szg-MN-EKK">
-                                <rect key="frame" x="186" y="442.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="szg-MN-EKK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3Zd-SE-djJ"/>
-                            <constraint firstItem="tOf-er-6MR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="67a-Px-Jd2"/>
-                            <constraint firstItem="szg-MN-EKK" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7fr-28-AeG"/>
-                            <constraint firstItem="szg-MN-EKK" firstAttribute="top" secondItem="tOf-er-6MR" secondAttribute="bottom" constant="20.5" id="iD2-JI-HyJ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="statusLabel" destination="szg-MN-EKK" id="PSO-AM-W1p"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
